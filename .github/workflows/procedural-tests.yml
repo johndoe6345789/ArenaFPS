@@ -37,24 +37,29 @@ jobs:
         cd Tools/ProceduralGeneration
         python -m pytest test_arena_generator.py -v --tb=short
     
-    - name: Run arena generator
+    - name: Generate all procedural assets
       run: |
         cd Tools/ProceduralGeneration
-        python arena_generator.py
+        python generate_all.py
     
-    - name: Verify output
+    - name: Verify outputs
       run: |
         cd Tools/ProceduralGeneration
-        if [ ! -f arena_geometry.json ]; then
-          echo "Error: arena_geometry.json was not generated"
-          exit 1
-        fi
-        echo "Arena geometry generated successfully"
-        ls -lh arena_geometry.json
+        for file in arena_geometry.json weapons_geometry.json pickups_geometry.json; do
+          if [ ! -f "$file" ]; then
+            echo "Error: $file was not generated"
+            exit 1
+          fi
+          echo "✓ $file generated successfully"
+          ls -lh "$file"
+        done
     
     - name: Upload arena geometry artifact
       uses: actions/upload-artifact@v4
       with:
-        name: arena-geometry
-        path: Tools/ProceduralGeneration/arena_geometry.json
+        name: procedural-assets
+        path: |
+          Tools/ProceduralGeneration/arena_geometry.json
+          Tools/ProceduralGeneration/weapons_geometry.json
+          Tools/ProceduralGeneration/pickups_geometry.json
         retention-days: 30

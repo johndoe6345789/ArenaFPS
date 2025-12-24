@@ -19,6 +19,9 @@ public class Quake3ArenaRuntime : ModuleRules
 				"GameplayAbilities",
 				"GameplayTags",
 				"GameplayTasks",
+				"ProceduralMeshComponent",
+				"Json",
+				"JsonUtilities",
 			}
 		);
 

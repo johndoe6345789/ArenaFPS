@@ -27,4 +27,6 @@ venv/
 
 # Procedural generation outputs (can be regenerated)
 Tools/ProceduralGeneration/arena_geometry.json
+Tools/ProceduralGeneration/weapons_geometry.json
+Tools/ProceduralGeneration/pickups_geometry.json
 Tools/ProceduralGeneration/test_arena_output.json
