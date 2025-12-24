@@ -1,3 +1,3 @@
-# Unreal3Arena
+# ArenaFPS
 
 Developed with Unreal Engine 5
