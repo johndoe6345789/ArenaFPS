@@ -59,7 +59,7 @@ void AArenaBot::UpdateBehavior()
 
 		case EBotState::Combat:
 			// Combat logic
-			if (CurrentTarget && !CurrentTarget->IsPendingKill())
+			if (CurrentTarget && IsValid(CurrentTarget))
 			{
 				MoveToTarget(CurrentTarget);
 				// Aim and shoot logic would go here
@@ -73,7 +73,7 @@ void AArenaBot::UpdateBehavior()
 
 		case EBotState::SeekingWeapon:
 			// Move to weapon pickup
-			if (CurrentTarget && !CurrentTarget->IsPendingKill())
+			if (CurrentTarget && IsValid(CurrentTarget))
 			{
 				MoveToTarget(CurrentTarget);
 			}
@@ -86,7 +86,7 @@ void AArenaBot::UpdateBehavior()
 
 		case EBotState::SeekingHealth:
 			// Move to health pickup
-			if (CurrentTarget && !CurrentTarget->IsPendingKill())
+			if (CurrentTarget && IsValid(CurrentTarget))
 			{
 				MoveToTarget(CurrentTarget);
 			}

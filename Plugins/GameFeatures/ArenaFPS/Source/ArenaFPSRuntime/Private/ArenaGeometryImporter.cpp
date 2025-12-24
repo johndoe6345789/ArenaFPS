@@ -165,7 +165,8 @@ UProceduralMeshComponent* AArenaGeometryImporter::CreateMeshFromData(
 	TArray<FProcMeshTangent> Tangents;
 	TArray<FLinearColor> VertexColors;
 	
-	// Simple normal calculation (can be improved)
+	// TODO: Calculate proper normals from triangle faces for correct lighting
+	// Currently using simple up normals as a placeholder
 	Normals.SetNum(Vertices.Num());
 	for (int32 i = 0; i < Normals.Num(); i++)
 	{

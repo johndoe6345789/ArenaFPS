@@ -7,7 +7,6 @@ Generates simple weapon meshes that can be imported into Unreal Engine
 import json
 import math
 from typing import List, Tuple
-from dataclasses import dataclass
 
 from arena_generator import Vector3, Mesh
 
@@ -141,7 +140,6 @@ class WeaponGenerator:
         print(f"Exported {len(self.meshes)} weapons to {filename}")
 
 
-@dataclass
 class PickupGenerator:
     """Generates pickup item meshes (health, armor, ammo)"""
     
