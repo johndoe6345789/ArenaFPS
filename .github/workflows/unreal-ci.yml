@@ -1,0 +1,102 @@
+name: Unreal Engine CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  validate-project:
+    name: Validate Unreal Project
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Check project structure
+      run: |
+        echo "Checking Unreal Engine project structure..."
+        
+        # Check for required files
+        if [ ! -f "Unreal3Arena.uproject" ]; then
+          echo "Error: Unreal3Arena.uproject not found"
+          exit 1
+        fi
+        
+        # Check for plugin structure
+        if [ ! -d "Plugins/GameFeatures/ArenaFPS" ]; then
+          echo "Error: ArenaFPS plugin not found"
+          exit 1
+        fi
+        
+        if [ ! -f "Plugins/GameFeatures/ArenaFPS/ArenaFPS.uplugin" ]; then
+          echo "Error: ArenaFPS.uplugin not found"
+          exit 1
+        fi
+        
+        echo "✓ Project structure is valid"
+    
+    - name: Validate JSON files
+      run: |
+        echo "Validating JSON files..."
+        
+        # Validate .uproject file
+        if ! python3 -m json.tool Unreal3Arena.uproject > /dev/null; then
+          echo "Error: Invalid JSON in Unreal3Arena.uproject"
+          exit 1
+        fi
+        
+        # Validate plugin files
+        for plugin in Plugins/GameFeatures/*/*.uplugin; do
+          if [ -f "$plugin" ]; then
+            if ! python3 -m json.tool "$plugin" > /dev/null; then
+              echo "Error: Invalid JSON in $plugin"
+              exit 1
+            fi
+            echo "✓ Valid: $plugin"
+          fi
+        done
+        
+        echo "✓ All JSON files are valid"
+    
+    - name: Check C++ source files
+      run: |
+        echo "Checking C++ source files..."
+        
+        cpp_files=$(find Plugins/GameFeatures/ArenaFPS/Source -name "*.cpp" -o -name "*.h" | wc -l)
+        echo "Found $cpp_files C++ source files"
+        
+        if [ $cpp_files -eq 0 ]; then
+          echo "Warning: No C++ source files found"
+        else
+          echo "✓ C++ source files present"
+        fi
+    
+    - name: Summary
+      run: |
+        echo "==================================="
+        echo "Project Validation Summary"
+        echo "==================================="
+        echo "✓ Project structure valid"
+        echo "✓ JSON files valid"
+        echo "✓ Plugin structure valid"
+        echo "==================================="
+
+  # Note: Full UE5 build requires Windows with UE5 installed
+  # This is a placeholder for when you have a self-hosted runner
+  # build-windows:
+  #   name: Build Unreal Project (Windows)
+  #   runs-on: windows-latest  # Or self-hosted with UE5
+  #   needs: validate-project
+  #   
+  #   steps:
+  #   - name: Checkout repository
+  #     uses: actions/checkout@v4
+  #   
+  #   - name: Build Unreal Project
+  #     run: |
+  #       # This requires UE5 to be installed
+  #       # Example command (adjust paths as needed):
+  #       # "C:\Program Files\Epic Games\UE_5.7\Engine\Build\BatchFiles\RunUAT.bat" BuildCookRun -project="%cd%\Unreal3Arena.uproject" -noP4 -platform=Win64 -clientconfig=Development -cook -build -stage -pak -archive

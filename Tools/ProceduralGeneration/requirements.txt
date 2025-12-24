@@ -1,0 +1,12 @@
+# Python dependencies for procedural asset generation
+# These are minimal dependencies for the basic generator
+
+# For enhanced CAD-like operations (optional, for future expansion)
+# cadquery>=2.0  # Uncomment if using advanced CAD operations
+
+# For testing
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# For data processing
+numpy>=1.21.0
