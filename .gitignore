@@ -13,3 +13,18 @@ Saved
 *.xcodeproj
 *.xcworkspace
 Content/Effects/Textures/Flipbooks/SmokeSwirl_3_Flipbook_CHANNELPACK.uasset
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Procedural generation outputs (can be regenerated)
+Tools/ProceduralGeneration/arena_geometry.json
+Tools/ProceduralGeneration/test_arena_output.json

@@ -308,6 +308,10 @@
 			"Enabled": true
 		},
 		{
+			"Name": "Quake3Arena",
+			"Enabled": true
+		},
+		{
 			"Name": "GameplayInteractions",
 			"Enabled": true
 		},
