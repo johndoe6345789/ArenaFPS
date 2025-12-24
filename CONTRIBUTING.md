@@ -34,7 +34,7 @@ Thank you for your interest in contributing to Unreal3Arena! This document provi
 
 ```
 Unreal3Arena/
-├── Plugins/GameFeatures/Quake3Arena/  # Game mode plugin
+├── Plugins/GameFeatures/ArenaFPS/  # Game mode plugin
 │   ├── Source/                        # C++ source code
 │   ├── Content/                       # Blueprints and assets
 │   └── README.md                      # Plugin documentation
@@ -164,7 +164,7 @@ test(generator): Add tests for weapon generation
 
 ### High Priority
 
-- **Weapon System**: Implement Q3A weapons (Rocket Launcher, Railgun, etc.)
+- **Weapon System**: Implement Arena FPS weapons (Rocket Launcher, Railgun, etc.)
 - **Pickup System**: Health and armor pickups
 - **Movement System**: Strafe jumping and bunny hopping
 - **HUD**: Score display, health/armor indicators

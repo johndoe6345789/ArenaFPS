@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Procedural Arena Generator for Quake 3 Arena clone
+Procedural Arena Generator for Arena FPS clone
 Generates arena geometry using code that can be unit tested
 Uses simple geometric primitives that can be exported to FBX/OBJ
 """
@@ -30,7 +30,7 @@ class Mesh:
 
 class ArenaGenerator:
     """
-    Generates a Quake 3 style arena level procedurally
+    Generates a Arena FPS style arena level procedurally
     This is a simplified version that generates platform layouts
     """
     
@@ -49,7 +49,7 @@ class ArenaGenerator:
         # Generate walls
         self.generate_walls()
         
-        # Generate platforms (like Q3DM17 "The Longest Yard")
+        # Generate platforms (like DM17 "The Longest Yard")
         self.generate_platforms()
         
         # Generate jump pads
@@ -137,7 +137,7 @@ class ArenaGenerator:
             self.meshes.append(mesh)
     
     def generate_platforms(self):
-        """Generate floating platforms (Q3DM17 style)"""
+        """Generate floating platforms (DM17 style)"""
         platform_configs = [
             # Central platform
             (0, 0, 300, 800, 800, 100),
@@ -284,7 +284,7 @@ class ArenaGenerator:
 
 
 def main():
-    """Generate a Quake 3 style arena"""
+    """Generate a Arena FPS style arena"""
     generator = ArenaGenerator(size=5000.0, height=1000.0)
     generator.generate_arena()
     generator.export_to_json("arena_geometry.json")

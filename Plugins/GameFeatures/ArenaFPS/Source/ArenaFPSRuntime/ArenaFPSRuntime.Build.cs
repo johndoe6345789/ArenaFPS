@@ -2,9 +2,9 @@
 
 using UnrealBuildTool;
 
-public class Quake3ArenaRuntime : ModuleRules
+public class ArenaFPSRuntime : ModuleRules
 {
-	public Quake3ArenaRuntime(ReadOnlyTargetRules Target) : base(Target)
+	public ArenaFPSRuntime(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 

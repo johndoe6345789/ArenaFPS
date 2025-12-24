@@ -4,7 +4,7 @@
 
 #include "Modules/ModuleManager.h"
 
-class FQuake3ArenaRuntimeModule : public IModuleInterface
+class FArenaFPSRuntimeModule : public IModuleInterface
 {
 public:
 	//~ Begin IModuleInterface interface

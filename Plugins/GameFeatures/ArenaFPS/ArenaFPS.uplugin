@@ -2,8 +2,8 @@
 	"FileVersion": 3,
 	"Version": 1,
 	"VersionName": "1.0",
-	"FriendlyName": "Quake3Arena",
-	"Description": "Quake 3 Arena game mode with procedural generation and bot AI",
+	"FriendlyName": "ArenaFPS",
+	"Description": "Classic arena-style FPS game mode with procedural generation and bot AI",
 	"Category": "Game Features",
 	"CreatedBy": "Unreal3Arena Team",
 	"CreatedByURL": "",
@@ -19,7 +19,7 @@
 	"BuiltInInitialFeatureState": "Registered",
 	"Modules": [
 		{
-			"Name": "Quake3ArenaRuntime",
+			"Name": "ArenaFPSRuntime",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}

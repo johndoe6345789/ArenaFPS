@@ -1,4 +1,4 @@
-# Quake3Arena Quick Reference
+# ArenaFPS Quick Reference
 
 ## Quick Start
 
@@ -50,9 +50,9 @@ git push origin feature/my-feature
 
 | What | Where |
 |------|-------|
-| Game Mode | `Plugins/GameFeatures/Quake3Arena/Source/.../Quake3GameMode.cpp` |
-| Bot AI | `Plugins/GameFeatures/Quake3Arena/Source/.../Quake3Bot.cpp` |
-| Geometry Importer | `Plugins/GameFeatures/Quake3Arena/Source/.../ArenaGeometryImporter.cpp` |
+| Game Mode | `Plugins/GameFeatures/ArenaFPS/Source/.../ArenaGameMode.cpp` |
+| Bot AI | `Plugins/GameFeatures/ArenaFPS/Source/.../ArenaBot.cpp` |
+| Geometry Importer | `Plugins/GameFeatures/ArenaFPS/Source/.../ArenaGeometryImporter.cpp` |
 | Arena Generator | `Tools/ProceduralGeneration/arena_generator.py` |
 | Weapon Generator | `Tools/ProceduralGeneration/weapon_generator.py` |
 | CI/CD Config | `.github/workflows/` |
@@ -63,8 +63,8 @@ git push origin feature/my-feature
 
 | Class | Purpose |
 |-------|---------|
-| `AQuake3GameMode` | Main game mode with Q3A rules |
-| `AQuake3Bot` | Bot AI controller |
+| `AArenaGameMode` | Main game mode with Arena FPS rules |
+| `AArenaBot` | Bot AI controller |
 | `AArenaGeometryImporter` | Imports JSON geometry to UE5 |
 
 ### Python Classes
@@ -160,7 +160,7 @@ platform_configs = [
 ## Project Status
 
 ✅ Implemented:
-- Game mode with Q3A rules
+- Game mode with Arena FPS rules
 - Bot AI with state machine
 - Procedural arena generation
 - Weapon/pickup generators

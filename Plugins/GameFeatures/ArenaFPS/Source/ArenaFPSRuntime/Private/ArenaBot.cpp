@@ -1,12 +1,12 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "Quake3Bot.h"
+#include "ArenaBot.h"
 #include "GameFramework/Character.h"
 #include "Kismet/GameplayStatics.h"
 #include "NavigationSystem.h"
 #include "NavigationPath.h"
 
-AQuake3Bot::AQuake3Bot()
+AArenaBot::AArenaBot()
 {
 	PrimaryActorTick.bCanEverTick = true;
 	CurrentState = EBotState::Idle;
@@ -14,7 +14,7 @@ AQuake3Bot::AQuake3Bot()
 	LastStateChangeTime = 0.0f;
 }
 
-void AQuake3Bot::BeginPlay()
+void AArenaBot::BeginPlay()
 {
 	Super::BeginPlay();
 	
@@ -22,14 +22,14 @@ void AQuake3Bot::BeginPlay()
 	CurrentState = EBotState::Roaming;
 }
 
-void AQuake3Bot::Tick(float DeltaTime)
+void AArenaBot::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	
 	UpdateBehavior();
 }
 
-void AQuake3Bot::UpdateBehavior()
+void AArenaBot::UpdateBehavior()
 {
 	if (!GetPawn())
 	{
@@ -120,7 +120,7 @@ void AQuake3Bot::UpdateBehavior()
 	}
 }
 
-AActor* AQuake3Bot::FindNearestEnemy()
+AActor* AArenaBot::FindNearestEnemy()
 {
 	// Find all pawns and return the nearest one that isn't us
 	TArray<AActor*> AllPawns;
@@ -147,21 +147,21 @@ AActor* AQuake3Bot::FindNearestEnemy()
 	return NearestEnemy;
 }
 
-AActor* AQuake3Bot::FindNearestWeapon()
+AActor* AArenaBot::FindNearestWeapon()
 {
 	// This would find weapon pickups in the level
 	// Placeholder for now
 	return nullptr;
 }
 
-AActor* AQuake3Bot::FindNearestHealthPack()
+AActor* AArenaBot::FindNearestHealthPack()
 {
 	// This would find health pickups in the level
 	// Placeholder for now
 	return nullptr;
 }
 
-void AQuake3Bot::MoveToTarget(AActor* Target)
+void AArenaBot::MoveToTarget(AActor* Target)
 {
 	if (Target)
 	{

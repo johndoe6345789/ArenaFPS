@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Procedural weapon generator for Quake 3 Arena
+Procedural weapon generator for Arena FPS
 Generates simple weapon meshes that can be imported into Unreal Engine
 """
 
@@ -15,7 +15,7 @@ from arena_generator import Vector3, Mesh
 class WeaponGenerator:
     """
     Generates procedural weapon meshes
-    Simple geometric representations for Q3A weapons
+    Simple geometric representations for Arena FPS weapons
     """
     
     def __init__(self):

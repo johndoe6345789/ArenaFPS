@@ -1,10 +1,10 @@
 #!/bin/bash
-# Setup script for Quake3Arena development environment
+# Setup script for ArenaFPS development environment
 
 set -e
 
 echo "=========================================="
-echo "Quake3Arena Development Setup"
+echo "ArenaFPS Development Setup"
 echo "=========================================="
 echo ""
 
@@ -50,11 +50,11 @@ echo ""
 echo "Next steps:"
 echo "  1. Open Unreal3Arena.uproject in Unreal Engine 5.7"
 echo "  2. Build the project (Development Editor configuration)"
-echo "  3. Enable the Quake3Arena plugin if needed"
+echo "  3. Enable the ArenaFPS plugin if needed"
 echo "  4. Create a level and add ArenaGeometryImporter actor"
 echo ""
 echo "For more information, see:"
 echo "  - README.md"
-echo "  - Plugins/GameFeatures/Quake3Arena/README.md"
+echo "  - Plugins/GameFeatures/ArenaFPS/README.md"
 echo "  - Tools/ProceduralGeneration/README.md"
 echo ""

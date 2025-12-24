@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Master script to generate all procedural assets for Quake3Arena
+Master script to generate all procedural assets for ArenaFPS
 Run this script to generate the complete asset set
 """
 
@@ -16,7 +16,7 @@ import json
 def generate_all_assets():
     """Generate all procedural assets"""
     print("=" * 60)
-    print("Quake3Arena Procedural Asset Generator")
+    print("ArenaFPS Procedural Asset Generator")
     print("=" * 60)
     
     success_count = 0

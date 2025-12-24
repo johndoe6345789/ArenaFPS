@@ -1,19 +1,19 @@
 # Unreal3Arena
 
-A Quake 3 Arena clone built in Unreal Engine 5 with procedurally generated assets and CI/CD pipeline.
+A Arena FPS clone built in Unreal Engine 5 with procedurally generated assets and CI/CD pipeline.
 
 ## Overview
 
-This project recreates the classic Quake 3 Arena experience in Unreal Engine 5, featuring:
+This project recreates the classic Arena FPS experience in Unreal Engine 5, featuring:
 - **Procedural Level Generation**: Levels generated from Python code for testability
-- **Bot AI**: Crash bot implementation with combat and navigation logic
-- **Deathmatch Game Mode**: Classic Q3A deathmatch rules
+- **Bot AI**: Bot AI implementation with combat and navigation logic
+- **Deathmatch Game Mode**: Classic Arena FPS deathmatch rules
 - **CI/CD Pipeline**: Automated testing and validation
 
 ## Features
 
 ### Game Systems
-- **Quake 3 Arena Game Mode** (`Plugins/GameFeatures/Quake3Arena`)
+- **Arena FPS Game Mode** (`Plugins/GameFeatures/ArenaFPS`)
   - Deathmatch with frag limit and time limit
   - Bot spawning and management
   - Respawn system
@@ -28,7 +28,7 @@ This project recreates the classic Quake 3 Arena experience in Unreal Engine 5, 
   - Code-based geometry generation
   - Exports to JSON format
   - Unit tested with pytest
-  - Inspired by Q3DM17 "The Longest Yard"
+  - Inspired by DM17 "The Longest Yard"
 
 ### CI/CD
 - **Automated Testing**: Python unit tests for procedural generators
@@ -81,7 +81,7 @@ Unreal3Arena/
 ├── Content/                    # Unreal Engine content
 ├── Plugins/
 │   └── GameFeatures/
-│       └── Quake3Arena/       # Q3A game mode plugin
+│       └── ArenaFPS/       # Arena FPS game mode plugin
 │           ├── Content/       # Assets and blueprints
 │           └── Source/        # C++ source code
 ├── Source/                     # Main game source (Lyra-based)
@@ -95,10 +95,10 @@ Unreal3Arena/
 
 ## Key Components
 
-### Quake3Arena Plugin
-Located in `Plugins/GameFeatures/Quake3Arena/`:
-- `Quake3GameMode`: Deathmatch game mode with Q3A rules
-- `Quake3Bot`: AI controller for bot players (Crash bot)
+### ArenaFPS Plugin
+Located in `Plugins/GameFeatures/ArenaFPS/`:
+- `ArenaGameMode`: Deathmatch game mode with Arena FPS rules
+- `ArenaBot`: AI controller for bot players (Bot AI)
 
 ### Procedural Generation
 Located in `Tools/ProceduralGeneration/`:
@@ -121,5 +121,5 @@ Developed with Unreal Engine 5
 ## Acknowledgments
 
 - Based on Epic Games' Lyra Sample Game
-- Inspired by id Software's Quake 3 Arena
+- Inspired by classic arena-style FPS games
 - Uses Unreal Engine 5.7

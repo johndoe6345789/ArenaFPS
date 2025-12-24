@@ -1,17 +1,17 @@
-# Quake3Arena Plugin Documentation
+# ArenaFPS Plugin Documentation
 
 ## Overview
 
-The Quake3Arena plugin provides a complete Quake 3 Arena-style deathmatch experience for Unreal Engine 5, including:
+The ArenaFPS plugin provides a complete Arena FPS-style deathmatch experience for Unreal Engine 5, including:
 - Game mode implementation
-- Bot AI (Crash bot)
+- Bot AI (Bot AI)
 - Procedural geometry import system
 
 ## Components
 
-### Game Mode: AQuake3GameMode
+### Game Mode: AArenaGameMode
 
-The main game mode class that implements Q3A deathmatch rules.
+The main game mode class that implements Arena FPS deathmatch rules.
 
 **Key Properties:**
 - `FragLimit` (int32): Number of frags needed to win (default: 25)
@@ -20,13 +20,13 @@ The main game mode class that implements Q3A deathmatch rules.
 - `RespawnDelay` (float): Delay before respawning in seconds (default: 3.0)
 
 **Usage in Blueprint:**
-1. Create a new Blueprint based on `AQuake3GameMode`
+1. Create a new Blueprint based on `AArenaGameMode`
 2. Configure game settings (frag limit, time limit, etc.)
 3. Set as the default game mode in World Settings
 
-### Bot AI: AQuake3Bot
+### Bot AI: AArenaBot
 
-AI controller for bot players, implementing Crash bot behavior.
+AI controller for bot players, implementing Bot AI behavior.
 
 **Key Properties:**
 - `SkillLevel` (int32): Bot skill level from 0-5 (5 = nightmare difficulty)
@@ -123,11 +123,11 @@ platform_configs = [
 
 ### Creating Custom Bot Behavior
 
-Extend `AQuake3Bot` in C++ or Blueprint:
+Extend `AArenaBot` in C++ or Blueprint:
 
 ```cpp
 UCLASS()
-class AMyCustomBot : public AQuake3Bot
+class AMyCustomBot : public AArenaBot
 {
     // Override UpdateBehavior() for custom AI
     virtual void UpdateBehavior() override;
@@ -136,7 +136,7 @@ class AMyCustomBot : public AQuake3Bot
 
 ### Adding Weapons and Pickups
 
-The plugin is designed to work with Lyra's weapon system. To add Q3A-style weapons:
+The plugin is designed to work with Lyra's weapon system. To add Arena FPS-style weapons:
 
 1. Create weapon data assets based on Lyra's weapon system
 2. Place weapon spawners in the level
@@ -155,7 +155,7 @@ python -m pytest test_arena_generator.py -v
 
 ### In-Engine Testing
 
-1. Open the level with Quake3Arena game mode
+1. Open the level with ArenaFPS game mode
 2. PIE (Play In Editor)
 3. Verify bots spawn and behave correctly
 4. Test game rules (frag limit, time limit)
@@ -176,7 +176,7 @@ This plugin is designed to work alongside Lyra's systems:
 - Works with Lyra's input system
 - Integrates with Gameplay Abilities
 
-You can mix and match Quake3Arena features with Lyra's existing game modes.
+You can mix and match ArenaFPS features with Lyra's existing game modes.
 
 ## Troubleshooting
 

@@ -26,13 +26,13 @@ jobs:
         fi
         
         # Check for plugin structure
-        if [ ! -d "Plugins/GameFeatures/Quake3Arena" ]; then
-          echo "Error: Quake3Arena plugin not found"
+        if [ ! -d "Plugins/GameFeatures/ArenaFPS" ]; then
+          echo "Error: ArenaFPS plugin not found"
           exit 1
         fi
         
-        if [ ! -f "Plugins/GameFeatures/Quake3Arena/Quake3Arena.uplugin" ]; then
-          echo "Error: Quake3Arena.uplugin not found"
+        if [ ! -f "Plugins/GameFeatures/ArenaFPS/ArenaFPS.uplugin" ]; then
+          echo "Error: ArenaFPS.uplugin not found"
           exit 1
         fi
         
@@ -65,7 +65,7 @@ jobs:
       run: |
         echo "Checking C++ source files..."
         
-        cpp_files=$(find Plugins/GameFeatures/Quake3Arena/Source -name "*.cpp" -o -name "*.h" | wc -l)
+        cpp_files=$(find Plugins/GameFeatures/ArenaFPS/Source -name "*.cpp" -o -name "*.h" | wc -l)
         echo "Found $cpp_files C++ source files"
         
         if [ $cpp_files -eq 0 ]; then

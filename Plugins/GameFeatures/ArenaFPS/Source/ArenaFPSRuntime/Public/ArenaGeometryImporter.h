@@ -12,7 +12,7 @@
  * Can be used in Blueprint or C++ to load arena_geometry.json
  */
 UCLASS(Blueprintable, BlueprintType)
-class QUAKE3ARENARUNTIME_API AArenaGeometryImporter : public AActor
+class ARENAFPSRUNTIME_API AArenaGeometryImporter : public AActor
 {
 	GENERATED_BODY()
 

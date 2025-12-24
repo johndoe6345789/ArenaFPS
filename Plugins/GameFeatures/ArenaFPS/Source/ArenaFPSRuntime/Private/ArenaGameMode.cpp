@@ -1,17 +1,17 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "Quake3GameMode.h"
-#include "Quake3Bot.h"
+#include "ArenaGameMode.h"
+#include "ArenaBot.h"
 #include "GameFramework/PlayerStart.h"
 #include "Kismet/GameplayStatics.h"
 #include "EngineUtils.h"
 
-AQuake3GameMode::AQuake3GameMode()
+AArenaGameMode::AArenaGameMode()
 {
 	GameStartTime = 0.0f;
 }
 
-void AQuake3GameMode::BeginPlay()
+void AArenaGameMode::BeginPlay()
 {
 	Super::BeginPlay();
 	
@@ -19,17 +19,17 @@ void AQuake3GameMode::BeginPlay()
 	
 	// Spawn bots after a short delay
 	FTimerHandle SpawnTimerHandle;
-	GetWorld()->GetTimerManager().SetTimer(SpawnTimerHandle, this, &AQuake3GameMode::SpawnBots, 1.0f, false);
+	GetWorld()->GetTimerManager().SetTimer(SpawnTimerHandle, this, &AArenaGameMode::SpawnBots, 1.0f, false);
 }
 
-void AQuake3GameMode::PostLogin(APlayerController* NewPlayer)
+void AArenaGameMode::PostLogin(APlayerController* NewPlayer)
 {
 	Super::PostLogin(NewPlayer);
 	
 	// Player spawned, initialize their score
 }
 
-void AQuake3GameMode::SpawnBots()
+void AArenaGameMode::SpawnBots()
 {
 	// Find all player starts
 	TArray<AActor*> PlayerStarts;
@@ -56,7 +56,7 @@ void AQuake3GameMode::SpawnBots()
 	}
 }
 
-void AQuake3GameMode::OnPlayerKilled(AController* Killer, AController* Victim)
+void AArenaGameMode::OnPlayerKilled(AController* Killer, AController* Victim)
 {
 	// Increment killer's score
 	if (Killer && Killer != Victim)
@@ -75,7 +75,7 @@ void AQuake3GameMode::OnPlayerKilled(AController* Killer, AController* Victim)
 	}
 }
 
-bool AQuake3GameMode::CheckGameEnd()
+bool AArenaGameMode::CheckGameEnd()
 {
 	// Check frag limit
 	// This will be implemented with proper score tracking

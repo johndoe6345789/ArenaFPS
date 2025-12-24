@@ -1,6 +1,6 @@
 # Procedural Arena Generator
 
-This directory contains Python scripts for procedurally generating Quake 3 Arena style levels and assets.
+This directory contains Python scripts for procedurally generating Arena FPS style levels and assets.
 
 ## Features
 
@@ -43,7 +43,7 @@ The generator creates:
 
 1. **Main Floor**: The base arena floor
 2. **Walls**: Perimeter walls around the arena
-3. **Platforms**: Floating platforms (similar to Q3DM17 "The Longest Yard")
+3. **Platforms**: Floating platforms (similar to DM17 "The Longest Yard")
 4. **Jump Pads**: Launch pad positions (geometry for placement)
 
 ## Integration with Unreal Engine
