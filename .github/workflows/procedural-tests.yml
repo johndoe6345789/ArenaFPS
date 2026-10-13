@@ -1,0 +1,65 @@
+name: Procedural Generation Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'Tools/ProceduralGeneration/**'
+      - '.github/workflows/procedural-tests.yml'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'Tools/ProceduralGeneration/**'
+      - '.github/workflows/procedural-tests.yml'
+
+jobs:
+  test-procedural-generation:
+    name: Test Python Procedural Generators
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        cd Tools/ProceduralGeneration
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Run unit tests
+      run: |
+        cd Tools/ProceduralGeneration
+        python -m pytest test_arena_generator.py -v --tb=short
+    
+    - name: Generate all procedural assets
+      run: |
+        cd Tools/ProceduralGeneration
+        python generate_all.py
+    
+    - name: Verify outputs
+      run: |
+        cd Tools/ProceduralGeneration
+        for file in arena_geometry.json weapons_geometry.json pickups_geometry.json; do
+          if [ ! -f "$file" ]; then
+            echo "Error: $file was not generated"
+            exit 1
+          fi
+          echo "✓ $file generated successfully"
+          ls -lh "$file"
+        done
+    
+    - name: Upload arena geometry artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: procedural-assets
+        path: |
+          Tools/ProceduralGeneration/arena_geometry.json
+          Tools/ProceduralGeneration/weapons_geometry.json
+          Tools/ProceduralGeneration/pickups_geometry.json
+        retention-days: 30
