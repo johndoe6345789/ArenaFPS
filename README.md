@@ -1,4 +1,4 @@
-# Unreal3Arena
+# ArenaFPS
 
 A Arena FPS clone built in Unreal Engine 5 with procedurally generated assets and CI/CD pipeline.
 
@@ -123,3 +123,15 @@ Developed with Unreal Engine 5
 - Based on Epic Games' Lyra Sample Game
 - Inspired by classic arena-style FPS games
 - Uses Unreal Engine 5.7
+
+## GitHub Actions diagnostics
+
+Use `tools/workflow_diagnostics.py` to summarize and lint the repository's
+GitHub Actions workflows without running any jobs. The script is dependency
+free, but installing `pyyaml` enables deeper YAML parsing.
+
+```bash
+python tools/workflow_diagnostics.py
+```
+
+Pass `--root /path/to/repo` to inspect another checkout.
